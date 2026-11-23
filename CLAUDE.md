@@ -1,4 +1,4 @@
-# hinari-cafe-nuxt3
+# hinari-cafe
 
 VTuber 理原ひなり (ことはら ひなり) さんの非公式ファンサイト。Nuxt 4 + Vuetify 4 の静的サイトを Cloudflare Pages に置いている。D1 を読むのはビルドのときだけで、サーバー側で動くのは `functions/api/search.ts` (Pages Functions) だけ。詳しくは README.md。
 
