@@ -17,6 +17,7 @@
                 hide-details
                 density="compact"
                 @keydown.enter="doSearch()"
+                @click:clear="clearSearch()"
               >
               </v-text-field>
             </v-col>
@@ -112,6 +113,13 @@ import { usePageData } from '~/composables/usePageData'
 
 const { name } = useDisplay()
 
+usePageSeo({
+  path: '/coffees/',
+  title: 'コーヒーレビュー',
+  description:
+    'VTuber理原ひなりさんのコーヒー配信で紹介されたコーヒーの一覧です。銘柄名のほか、味や香りの言葉からも探せます。',
+})
+
 const documents = await usePageData('/api/coffees', 'coffeesPage')
 
 const coffeesPage = documents[0]
@@ -177,6 +185,12 @@ const doSearch = () => {
   page.value = 1
 }
 
+// 検索語を消したら全件に戻す (Enter を押さなくても戻るように)
+const clearSearch = () => {
+  search.value = ''
+  doSearch()
+}
+
 // 並び順変更
 const changeSortOrder = () => {
   order.value = order.value * -1
@@ -206,13 +220,13 @@ watch(
 </script>
 <style lang="scss" scoped>
 .appbar-container {
-  @media (min-width: 2560px) {
+  @media (width >= 2560px) {
     max-width: 1920px;
   }
 }
 
 .coffees-wrapper {
-  @media (min-width: 1920px) {
+  @media (width >= 1920px) {
     max-width: 1920px;
     margin: 0 auto;
   }
@@ -220,9 +234,11 @@ watch(
 
 .coffee-card {
   flex-grow: 1;
+
   &-title {
     font-size: calc(0.5vw + 12px);
   }
+
   &-subtitle {
     font-size: 12px;
   }

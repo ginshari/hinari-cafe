@@ -1,4 +1,4 @@
-# hinari-cafe-nuxt3
+# hinari-cafe
 
 VTuber理原ひなりさんの非公式ファンサイトです
 
