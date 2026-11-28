@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
-    "sass": "^1.57.1",
+    "sass": "^1.108.2",
     "sass-loader": "^16.0.5",
     "vite-plugin-vuetify": "^2.1.2",
     "vuetify": "~4.3.1"
